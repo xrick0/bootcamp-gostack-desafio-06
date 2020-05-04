@@ -11,9 +11,10 @@ interface RequestDTO {
   csvRows: string[];
 }
 
+type TransactionTypes = 'income' | 'outcome';
 interface CsvTransaction {
   title: string;
-  type: 'income' | 'outcome';
+  type: TransactionTypes;
   value: number;
   category: string;
 }
@@ -49,7 +50,7 @@ class ImportTransactionsService {
 
       const tempTransaction = {
         title,
-        type,
+        type: type as TransactionTypes,
         value: Number(value),
         category,
       };
