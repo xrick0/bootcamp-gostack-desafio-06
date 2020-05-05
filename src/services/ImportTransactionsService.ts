@@ -48,16 +48,12 @@ class ImportTransactionsService {
         throw new AppError('One or more transactions are missing data');
       }
 
-      const tempTransaction = {
+      transactions.push({
         title,
         type: type as TransactionTypes,
         value: Number(value),
         category,
-      };
-
-      console.log(tempTransaction);
-
-      transactions.push(tempTransaction);
+      });
 
       categories.push(category);
     });

@@ -51,13 +51,8 @@ transactionsRouter.delete('/:id', async (request, response) => {
 
 transactionsRouter.post(
   '/import',
-  upload.single('csvFile'),
+  upload.single('file'),
   async (request, response) => {
-    // TODO
-    // Importar arquivo csv
-    // contendo id, title, value, type, category_id,
-    // created_at, updated_at
-    // cada linha do csv 'e uma nova entrada
     const importTransactions = new ImportTransactionsService();
 
     const csvFileBuffer = request.file.buffer;
